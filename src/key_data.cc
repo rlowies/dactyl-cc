@@ -17,7 +17,9 @@ constexpr double kAColumnRadius = 70;
 constexpr double kSColumnRadius = 65;
 constexpr double kGColumnRadius = 65;
 constexpr double kFColumnRadius = 70;
+constexpr double kModColumnRadius = 70;
 constexpr double kCapsColumnRadius = 60;
+
 
 // Rotates a key about the x axis until it has traveled the direct distance (not on the arc).
 Key GetRotatedKey(double radius, bool up) {
@@ -118,7 +120,8 @@ KeyData::KeyData(TransformList key_origin) {
 
   // All keys in the dish are relative to d and then based off of their
   // associated key in the home row.
-  key_d.Configure([&](Key& k) {
+
+ key_d.Configure([&](Key& k) {
     k.name = "d";
     k.SetParent(key_origin);
     k.SetPosition(26.40, 50.32, 17.87);
@@ -147,6 +150,14 @@ KeyData::KeyData(TransformList key_origin) {
     k.SetParent(key_f);
     k.SetPosition(20, -1.310, 3.305);
     k.t().ry = -4;
+  });
+
+
+  key_m3.Configure([&](Key& k) {
+    k.name = "m3";
+    k.SetParent(key_g);
+    k.SetPosition(20.90, 1.150, -2.125);
+    k.t().ry = 10;
   });
 
   key_s.Configure([&](Key& k) {
@@ -277,6 +288,19 @@ KeyData::KeyData(TransformList key_origin) {
   key_b.Configure([&](Key& k) {
     k.name = "b";
     k.SetParent(key_g);
+  });
+
+  // Mod column
+  key_m2 = GetRotatedKey(kModColumnRadius, true);
+  key_m2.Configure([&](Key& k) {
+    k.name = "m2";
+    k.SetParent(key_m3);
+  });
+
+ key_m1 = GetRotatedKey(kModColumnRadius, true);
+  key_m1.Configure([&](Key& k) {
+    k.name = "m1";
+    k.SetParent(key_m2);
   });
 
   // A column
