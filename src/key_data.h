@@ -37,6 +37,7 @@ struct KeyData {
   Key key_v;
   Key key_b;
 
+  Key key_fn;
   Key key_tilde;
   Key key_slash;
   Key key_left_arrow;
@@ -51,11 +52,11 @@ struct KeyData {
 
   // clang-format off
   KeyGrid grid {{
-    { &key_plus,   &key_1,      &key_2,      &key_3,           &key_4,            &key_5},
-    { &key_tab,    &key_q,      &key_w,      &key_e,           &key_r,            &key_t},
-    { &key_caps,   &key_a,      &key_s,      &key_d,           &key_f,            &key_g},
-    { &key_shift,  &key_z,      &key_x,      &key_c,           &key_v,            &key_b},
-    { nullptr,     &key_tilde,  &key_slash,  &key_left_arrow,  &key_right_arrow,  nullptr},
+    { &key_plus,    &key_1,      &key_2,      &key_3,           &key_4,            &key_5},
+    { &key_tab,     &key_q,      &key_w,      &key_e,           &key_r,            &key_t},
+    { &key_caps,    &key_a,      &key_s,      &key_d,           &key_f,            &key_g},
+    { &key_shift,   &key_z,      &key_x,      &key_c,           &key_v,            &key_b},
+    { &key_fn,      &key_tilde,  &key_slash,  &key_left_arrow,  &key_right_arrow,  nullptr},
   }};
   // clang-format on
 
