@@ -146,13 +146,13 @@ int main() {
                               d.key_v.GetBottomRight(),
                           }));
 
-  // Bottom right corner.
-  shapes.push_back(TriFan(d.key_shift.GetBottomRight(),
+  // Bottom left corner.
+  shapes.push_back(TriFan(d.key_fn.GetTopRight(),
                           {
                               d.key_z.GetBottomLeft(),
                               d.key_tilde.GetTopLeft(),
                               d.key_tilde.GetBottomLeft(),
-                              d.key_shift.GetBottomLeft(),
+                              d.key_fn.GetBottomRight(),
                           }));
 
   // Connecting top wall to keys
@@ -272,9 +272,13 @@ int main() {
         {d.key_tilde.GetBottomRight(), down},
         {d.key_tilde.GetBottomLeft(), down},
 
-        {d.key_shift.GetBottomLeft(), down, 0, .75},
-        {d.key_shift.GetBottomLeft(), left, 0, .5},
-        {d.key_shift.GetTopLeft(), left, 0, .5},
+        {d.key_fn.GetBottomRight(), down},
+        {d.key_fn.GetBottomLeft(), down},
+        {d.key_fn.GetBottomLeft(), left, 0, 0.75},
+        {d.key_fn.GetTopLeft(), left, 0, .5},
+        
+        {d.key_shift.GetBottomLeft(), left},
+        {d.key_shift.GetBottomLeft(), left},
 
         {d.key_caps.GetBottomLeft(), left},
         {d.key_caps.GetTopLeft(), left},
@@ -356,7 +360,7 @@ int main() {
     Shape screw_insert =
         Cylinder(screw_height, screw_radius + 1.65, 30).TranslateZ(screw_height / 2);
 
-    glm::vec3 screw_left_bottom = d.key_shift.GetBottomLeft().Apply(kOrigin);
+    glm::vec3 screw_left_bottom = d.key_fn.GetBottomLeft().Apply(kOrigin);
     screw_left_bottom.z = 0;
     screw_left_bottom.x += 3.2;
 
