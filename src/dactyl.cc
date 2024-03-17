@@ -71,9 +71,9 @@ int main() {
     }
   }
 
-  d.key_5.extra_width_right = 4;
-  d.key_t.extra_width_right = 4;
-  d.key_g.extra_width_right = 4;
+  d.key_m1.extra_width_right = 4;
+  d.key_m2.extra_width_right = 4;
+  d.key_m3.extra_width_right = 4;
 
   for (Key* key : d.grid.row(0)) {
     // top row
@@ -104,9 +104,15 @@ int main() {
                               d.key_b.GetTopRight(),
                               d.key_g.GetBottomRight(),
                           })
-
   );
 
+  shapes.push_back(TriFan(d.key_ctrl.GetTopLeft(),
+                          {
+                              d.key_g.GetBottomRight(),
+                              d.key_m3.GetBottomLeft(),
+                              d.key_m3.GetBottomRight(),
+                          })
+  );
   // These transforms with TranslateFront are moving the connectors down in the z direction to
   // reduce the vertical jumps.
   TransformList slash_bottom_right = d.key_slash.GetBottomRight().TranslateFront(0, -5, -3);
@@ -161,6 +167,7 @@ int main() {
   TransformList key_2_top_right_wall = d.key_2.GetTopRight().TranslateFront(0, 4, -1);
   TransformList key_3_top_right_wall = d.key_3.GetTopRight().TranslateFront(0, 3.5, 0);
   TransformList key_4_top_right_wall = d.key_4.GetTopRight().TranslateFront(0, 2.2, 0);
+  TransformList key_5_top_right_wall = d.key_5.GetTopRight().TranslateFront(0, 1.7, 0);
 
   shapes.push_back(TriFan(key_4_top_right_wall,
                           {
@@ -240,14 +247,16 @@ int main() {
         // {d.key_4.GetTopLeft(), up},
         {key_4_top_right_wall, up},
         {d.key_5.GetTopRight(), up},
-        {d.key_5.GetTopRight(), right},
-        {d.key_5.GetBottomRight(), right},
 
-        {d.key_t.GetTopRight(), right},
-        {d.key_t.GetBottomRight(), right},
+        {d.key_m1.GetTopRight(), up},
+        {d.key_m1.GetTopRight(), right},
+        {d.key_m1.GetBottomRight(), right},
 
-        {d.key_g.GetTopRight(), right},
-        {d.key_g.GetBottomRight(), right, 1, .5},
+        {d.key_m2.GetTopRight(), right},
+        {d.key_m2.GetBottomRight(), right},
+
+        {d.key_m3.GetTopRight(), right},
+        {d.key_m3.GetBottomRight(), right, 1, .5},
 
         {d.key_ctrl.GetTopLeft().RotateFront(0, 0, -15), up, 1, .5},
         {d.key_ctrl.GetTopRight(), up},
@@ -369,10 +378,10 @@ int main() {
     screw_left_top.x += 2.8;
     screw_left_top.y += -.5;
 
-    glm::vec3 screw_right_top = d.key_5.GetTopRight().Apply(kOrigin);
+    glm::vec3 screw_right_top = d.key_m1.GetTopRight().Apply(kOrigin);
     screw_right_top.z = 0;
-    screw_right_top.x += 4;
-    screw_right_top.y += -15.5;
+    screw_right_top.x += -2;
+    screw_right_top.y += 0;
 
     glm::vec3 screw_right_bottom = d.key_end.GetBottomLeft().Apply(kOrigin);
     screw_right_bottom.z = 0;
