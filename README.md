@@ -1,4 +1,11 @@
+This Repo is a Fork of the repo described below
+This version reselmbes the Advantage 360 as it has been modified to contain the Fn keys and Modifier columns. 
+
+Results TBD I have not fully printed and tested yet.
+
 # Dactyl CC Keyboard
+
+_________________________
 
 This keyboard and associated libraries take heavy inspiration from the
  [dactyl](https://github.com/adereth/dactyl-keyboard) and
