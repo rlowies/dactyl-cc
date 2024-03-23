@@ -54,13 +54,22 @@ struct KeyData {
   Key key_alt;
 
   // clang-format off
-  KeyGrid grid {{
-    { &key_plus,    &key_1,      &key_2,      &key_3,           &key_4,            &key_5,  &key_m1},
-    { &key_tab,     &key_q,      &key_w,      &key_e,           &key_r,            &key_t,  &key_m2},
-    { &key_caps,    &key_a,      &key_s,      &key_d,           &key_f,            &key_g,  &key_m3},
-    { &key_shift,   &key_z,      &key_x,      &key_c,           &key_v,            &key_b,  nullptr},
-    { &key_fn,      &key_tilde,  &key_slash,  &key_left_arrow,  &key_right_arrow,  nullptr, nullptr},
+  // KeyGrid grid {{
+  //   { &key_plus,    &key_1,      &key_2,      &key_3,           &key_4,            &key_5,  &key_m1},
+  //   { &key_tab,     &key_q,      &key_w,      &key_e,           &key_r,            &key_t,  &key_m2},
+  //   { &key_caps,    &key_a,      &key_s,      &key_d,           &key_f,            &key_g,  &key_m3},
+  //   { &key_shift,   &key_z,      &key_x,      &key_c,           &key_v,            &key_b,  nullptr},
+  //   { &key_fn,      &key_tilde,  &key_slash,  &key_left_arrow,  &key_right_arrow,  nullptr, nullptr},
+  // }};
+
+    KeyGrid grid {{
+    { &key_plus,    nullptr,      nullptr,      nullptr,           nullptr,            nullptr,  nullptr},
+    { &key_tab,     nullptr,      nullptr,      nullptr,           nullptr,            nullptr,  nullptr},
+    { &key_caps,    nullptr,      nullptr,      nullptr,           nullptr,            nullptr,  nullptr},
+    { &key_shift,   nullptr,      nullptr,      nullptr,           nullptr,            nullptr,  nullptr},
+    { &key_fn,      nullptr,  nullptr,  nullptr,  nullptr,  nullptr, nullptr},
   }};
+
   // clang-format on
 
   std::vector<Key*> thumb_keys() {
@@ -69,9 +78,9 @@ struct KeyData {
 
   std::vector<Key*> all_keys() {
     std::vector<Key*> keys;
-    for (Key* key : thumb_keys()) {
-      keys.push_back(key);
-    }
+    // for (Key* key : thumb_keys()) {
+    //   keys.push_back(key);
+    // }
     for (Key* key : grid.keys()) {
       keys.push_back(key);
     }
