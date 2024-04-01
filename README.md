@@ -18,10 +18,12 @@ I also found this post from [geekhack](https://geekhack.org/index.php?topic=1153
 ## Controller 
 
 I chose to go with the NRF52840, it's really a chinese knockoff of the nice!nano and can be found on aliexpress. It is much cheaper but draws some more power from the batteries when idle than the nice!nano would. The power consumption is explained in [this wiki](https://github.com/joric/nrfmicro/wiki/Alternatives#supermini-nrf52840) and there are solutions +alternatives if that is a concern for you.
-To combat this, I have installed 3400mah batteries for each side. This is a massive size for a keyboard but it adds a lot of weight to the keyboard that I find necessary. I also added a power switch that will cut power to the batteries when not in use.
+To combat this, I have installed 3400mah batteries for each side. This is a massive size for a keyboard but it adds a lot of weight to it that I find necessary. I also added a power switch that will cut power to the batteries when not in use.
 
 ## Firmware
-I chose to flash the controllers with ZMK since it supports wireless pairing. It is very simple to modify the layout using [Keymap Editor](https://nickcoutsos.github.io/keymap-editor/)
+I chose to flash the controllers with ZMK since it supports wireless pairing. It is very simple to modify the layout using this [Keymap Editor](https://nickcoutsos.github.io/keymap-editor/)
+
+
 Here is my repo including the layout meant for a keyboard similar to the Advantage 360
 https://github.com/rlowies/zmk-config-dactyl-360
 
