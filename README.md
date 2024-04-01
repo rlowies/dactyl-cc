@@ -1,62 +1,33 @@
-This Repo is a Fork of the repo described below
-This version resembles the Advantage 360 as it has been modified to contain the Fn keys and Modifier columns. 
+This Repo is a Fork of [mjohns dactyl cc build](https://github.com/mjohns/dactyl-cc) that is similar to a Kinesis Advantage 2.
 
-Results TBD I have not fully printed and tested yet.
+I have modified the original dactyl-cc to now contain the Fn keys and Modifier columns. This version resembles the Kinesis Advantage 360.
 
-# Dactyl CC Keyboard
 
-_________________________
+## Print
 
-This keyboard and associated libraries take heavy inspiration from the
- [dactyl](https://github.com/adereth/dactyl-keyboard) and
-the [dactyl_manuform](https://github.com/abstracthat/dactyl-manuform) keyboards.
- Major thanks to Matthew Adereth and Tom Short for their work.
+The [print](https://imgur.com/9Io86a6.png) turned out nicely after spending some time tuning my printer. I found that decreasing the density of the supports made it easier to remove.
+I also chose to use hotglue on the keys just in case, but they fit pretty snug without it.
 
-The dactyl-cc keyboard takes a different approach to the structure of the code (and language)
- as well as being more similar in feel to the Kinesis Advantage 2.
+## Wiring
 
-If you are interested in a smaller version see the [mini](https://github.com/mjohns/dactyl-cc-mini) version.
+There are many examples out there that explain how this works. [tuxtower](https://tuxtower.net/blog/dactylmanuform/) is a good resource.
+I also found this post from [geekhack](https://geekhack.org/index.php?topic=115397.0) very helpful when wiring the thumb clusters.
 
-If you are interested in building it you can take a look at the [guide](guide/README.md). Any dactyl build guide you choose should work like [this one.](https://medium.com/swlh/complete-idiot-guide-for-building-a-dactyl-manuform-keyboard-53454845b065)
+![image](https://imgur.com/aoQg44I.png)
 
-![image](https://imgur.com/CUbPLZC.jpg)
+## Controller 
 
-CMake is the preferred way to build and leads to the fastest recompilation times.
-```
-cd build
-./build.sh
-```
+I chose to go with the NRF52840, it's really a chinese knockoff of the nice!nano and can be found on aliexpress. It is much cheaper but draws some more power from the batteries when idle than the nice!nano would. The power consumption is explained in [this wiki](https://github.com/joric/nrfmicro/wiki/Alternatives#supermini-nrf52840) and there are solutions +alternatives if that is a concern for you.
+To combat this, I have installed 3400mah batteries for each side. This is a massive size for a keyboard but it adds a lot of weight to the keyboard that I find necessary. I also added a power switch that will cut power to the batteries when not in use.
 
-If you do not have cmake installed you can run the simple build script which just uses g++.
-```
-cd build
-./build_simple.sh
-```
+## Firmware
+I chose to flash the controllers with ZMK since it supports wireless pairing. It is very simple to modify the layout using [Keymap Editor](https://nickcoutsos.github.io/keymap-editor/)
+Here is my repo including the layout meant for a keyboard similar to the Advantage 360
+https://github.com/rlowies/zmk-config-dactyl-360
 
-You can generate an stl from the command line with the following command:
-```
-cd build
-// openscad -o ../things/left.stl left.scad
-make_things.sh
-```
+## Results
 
-The external holder cutout design is taken from https://github.com/cykedev/dactyl-cc and is designed to for loligagger's external holder.
+This verson of the dactyl is very similar to the actual Advantage 360, I have no issues swapping between the two. Given that my goal was to have similar typing experiences on my other computers without having to move the advantage 360 this was a huge success!
 
-Loligagger's external holder files:
-
-* [Promicro V1](https://web.archive.org/web/20220607031919/https://dactyl.siskam.link/loligagger-external-holder-promicro-v1.stl)
-* [Promicro V2](https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl)
-* [Elite-C V1](https://web.archive.org/web/20220607031927/https://dactyl.siskam.link/loligagger-external-holder-elite-c-v1.stl)
-
-v2 changes:
-* Smoothed out back walls and walls around thumb cluster.
-* Merged https://github.com/cykedev/dactyl-cc for external holder.
-* Adjusted 'g' colum rotation from 10 to 4 degrees.
-
-v1 stl files are archived in the things folder. The source code can be viewed on the v1 git branch.
-
-![image](https://imgur.com/IP2UYYA.jpg)
-![image](https://imgur.com/LvZQUT4.jpg)
-![image](https://imgur.com/0AYtoey.jpg)
-
-[other images](https://imgur.com/a/jBbUXNx)
+![image](https://imgur.com/0g1YPs4.png)
+![image](https://imgur.com/zdiNVeq.png)
